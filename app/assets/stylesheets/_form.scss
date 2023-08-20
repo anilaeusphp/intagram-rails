@@ -1,0 +1,6 @@
+input[type="email"] , input[type="password"], input[type="text"]{
+  background-color: #EFEFEF;
+}
+input[type="email"]:focus , input[type="password"]:focus, input[type="text"]:focus{
+  background-color: white;
+}
