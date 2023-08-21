@@ -1,3 +1,14 @@
+<main style="padding: 3rem 0 10rem 0;">
 <% Post.find_each do |post| %>
-  <%= image_tag Post.last.photo.variant(resize_to_limit: [600, 600]), data: { controller: "photo-cropper" }, class: "mt-5" %>
+
+
+  <div class="card" style="width: 40rem; margin-top: 3rem;">
+    <small>Published by: <%= post.user.username %></small>
+    <%= image_tag post.photo.variant(resize_to_limit: [600, 600]), data: { controller: "photo-cropper" }, class: "mt-5 #{post.filter_name if post.filter_name.present?}" %>
+    <div class="card-body">
+      <p class="card-text mb-4"><%= post.description ? post.description : "" %></p>
+      <small>Published at <strong><%= time_ago_in_words(post.created_at) %></strong></small>
+    </div>
+  </div>
 <% end %>
+</main>

@@ -1,1 +1,22 @@
 <h2>Applying Filter</h2>
+<div data-controller="apply-filter">
+  <div class="w-full py-5 d-flex justify-content-center align-items-center">
+    <div>
+      <div>
+        <%= image_tag @post.photo.variant(resize_to_limit: @resize_dimension, crop: [@post.x_offsets, @post.y_offsets, @post.width, @post.height]), data: { "apply-filter-target": "image", filter: "" } , class: (@post.filter_name.present? ? @post.filter_name : nil)%>
+      </div>
+      <div class="d-flex align-content-center justify-content-center flex-wrap mb-5">
+        <% PostsHelper::FILTERS.each do |filter| %>
+          <%= button_tag filter, class: "btn btn-info mb-2", style: "margin-right:.5rem", data: { "apply-filter-target": "filterButton", "filter-name": filter, "action": "apply-filter#applyFilter" } %>
+        <% end %>
+
+      </div>
+      <%= form_with model: @post, data: { "apply-filter-target": "form" } do |f| %>
+        <%= f.hidden_field :filter_name, data: { "apply-filter-target": "filterName" } %>
+        <%= f.hidden_field :status, value: :final_draft %>
+        <%= f.submit "Apply Filter", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

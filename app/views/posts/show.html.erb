@@ -1,0 +1,5 @@
+<%= image_tag @post.photo.variant(resize_to_limit: @resize_dimension,crop: [@post.x_offsets, @post.y_offsets, @post.width, @post.height]),
+              data: {controller: "photo-filter", "photo-filter-target": "image", filter: @post.filter_name } ,
+              class: (@post.filter_name.present? ? @post.filter_name : nil)%>
+<p><%= @post.description %></p>
+<small>Published <%=  time_ago_in_words(@post.created_at)  %> ago</small>

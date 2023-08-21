@@ -19,8 +19,10 @@
     <li class="d-flex align-items-center gap-3"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/notifications", width: 30, style: "color:black;" %>
         Notifications
       <% end %></li>
-    <li class="d-flex align-items-center gap-3"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/user-pp", width: 30 %>
-        Profile
+    <li class="d-flex align-items-center"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; margin:0;padding: 0; " do %>  <%= link_to  destroy_user_session_path, data: { "turbo-method": "delete" } , style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %>
+          <%= image_tag "icons/user-pp", width: 30 %>
+          Logout
+        <% end %>
       <% end %></li>
 
   </ul>
