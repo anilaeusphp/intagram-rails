@@ -1,0 +1,27 @@
+<nav class="px-4 py-5">
+  <ul class="d-flex flex-column gap-3 my-2" style="list-style: none; padding: 0;">
+    <li><%= link_to root_path do %>
+        <%= image_tag "instagram_text.png", style: "height: 3rem;cursor: pointer" %>
+      <% end %>
+    </li>
+    <li class="d-flex align-items-center gap-3"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/home", width: 30 %>
+        Home
+      <% end %></li>
+    <li class="d-flex align-items-center gap-3"><%= link_to "root_path", data: { "bs-toggle": "modal", "bs-target": "#new-post-modal" }, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/add", width: 30 %>
+        Create
+      <% end %></li>
+    <li class="d-flex align-items-center gap-3"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/reels", width: 30 %>
+        Reels
+      <% end %></li>
+    <li class="d-flex align-items-center gap-3"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/messages", width: 30 %>
+        Messages
+      <% end %></li>
+    <li class="d-flex align-items-center gap-3"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/notifications", width: 30, style: "color:black;" %>
+        Notifications
+      <% end %></li>
+    <li class="d-flex align-items-center gap-3"><%= link_to root_path, style: "text-decoration: none; color: inherit; display: flex; align-items:center; gap: 1rem;" do %><%= image_tag "icons/user-pp", width: 30 %>
+        Profile
+      <% end %></li>
+
+  </ul>
+</nav>

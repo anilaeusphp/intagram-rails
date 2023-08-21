@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>InstagramRails</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>InstagramRails</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <%= favicon_link_tag asset_path("instagram.png") %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%= favicon_link_tag asset_path("instagram.png") %>
+</head>
 
-  <body>
-  <% if user_signed_in? %>
-  <%= link_to "Logout", destroy_user_session_path, data: {"turbo-method":"delete"} %>
-  <% end %>
-    <%= yield %>
-  </body>
+<body>
+<% if user_signed_in? %>
+  <%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": "delete" } %>
+  <div class="row text-center">
+    <div class="col">
+
+      <%= render "layouts/nav_sidebar" %>
+
+    </div>
+    <div class="col-8">
+      <%= yield %>
+    </div>
+    <div class="col">3</div>
+  </div>
+  <%= render "layouts/create_post_modal" %>
+<% else %>
+  <%= yield %>
+<% end %>
+
+</body>
 </html>
